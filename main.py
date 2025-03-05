@@ -97,6 +97,9 @@ if __name__ == '__main__':
     while not isinstance(agent_step, AgentFinish):
 
         # Invocamos el Agente que puede devolver AgentAction o AgentFinish
+        # Incluimos en cada repetición los pasos intermedios para proporcionar el resultado de haber elegido
+        # y utilizado una herramienta, en caso sea un resultado lógico para el agente pues este llegará
+        # a la respuesta final
         agent_step: Union[AgentAction, AgentFinish] = agent.invoke(
             {"input": "What is the length in characters of the text DOG?'",
             "agent_scratchpad": intermediate_steps
